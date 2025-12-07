@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vshop-product-api
+  namespace: vshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: vshop-product-api
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: vshop-product
+        app.kubernetes.io/component: backend
+        app.kubernetes.io/instance: vshop-product-api
+    spec:
+      containers:
+      - name: vshop-product-api
+        image: vshopproduct:latest
+        imagePullPolicy: Never
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "128m"
+        ports:
+        - containerPort: 8080

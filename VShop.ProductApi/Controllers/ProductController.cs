@@ -72,4 +72,11 @@ namespace VShop.ProductApi.Controllers;
 
             return Ok(produtoDto);
         }
+        // /api/Product/test
+        [HttpGet("test")]
+        public async Task<IActionResult> GetTest()
+        {
+            return Ok("It is working");
+        }
+        
     }
