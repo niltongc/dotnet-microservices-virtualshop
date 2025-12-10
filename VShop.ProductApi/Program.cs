@@ -11,11 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+var uiUrl = builder.Configuration["UrlUI:VShopWebUI"] ?? throw new Exception("UI url not available");
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
     {
-        builder.WithOrigins("http://localhost:8081")
+        builder.WithOrigins(uiUrl)
                .AllowAnyMethod()
                .AllowAnyHeader();
     });

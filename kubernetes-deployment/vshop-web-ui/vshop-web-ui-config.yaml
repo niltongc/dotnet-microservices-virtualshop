@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vshop-web-ui-config
+  namespace: vshop
+data:
+  VShopProductApi: "http://vshop-product-api:8080"

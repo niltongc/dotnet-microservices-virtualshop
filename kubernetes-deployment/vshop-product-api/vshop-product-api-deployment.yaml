@@ -25,6 +25,8 @@ spec:
             secretKeyRef:
               name: sqlserver-secret
               key: DefaultConnection
+        - name: UrlUI__VShopWebUI
+          value: "http://192.168.49.2:32001"
         resources:
           limits:
             memory: "128Mi"
