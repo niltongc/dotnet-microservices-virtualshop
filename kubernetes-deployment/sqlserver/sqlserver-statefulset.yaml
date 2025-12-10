@@ -23,7 +23,7 @@ spec:
         image: sqlserver-with-data:latest
         imagePullPolicy: Never
         ports:
-        - containerPort: 1443
+        - containerPort: 1433
           name: tcpsql
         env:
         - name: ACCEPT_EULA
@@ -33,7 +33,10 @@ spec:
         - name: MSSQL_AGENT_ENABLED
           value: "1"
         - name: SA_PASSWORD
-          value: "Senha@123"
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: MSSQL_SA_PASSWORD
         volumeMounts:
         - name: sqlserver-persistent-storage
           mountPath: /var/opt/mssql

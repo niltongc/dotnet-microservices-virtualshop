@@ -19,6 +19,12 @@ spec:
       - name: vshop-product-api
         image: vshopproduct:latest
         imagePullPolicy: Never
+        env:
+        - name: ConnectionStrings__DefaultConnection
+          valueFrom:
+            secretKeyRef:
+              name: sqlserver-secret
+              key: DefaultConnection
         resources:
           limits:
             memory: "128Mi"
