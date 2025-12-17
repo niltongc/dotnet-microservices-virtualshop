@@ -26,7 +26,10 @@ spec:
               name: sqlserver-secret
               key: DefaultConnection
         - name: UrlUI__VShopWebUI
-          value: "http://192.168.49.2:32001"
+          valueFrom:
+            configMapKeyRef:
+              name: vshop-product-api-config
+              key: VShopProductWeb
         resources:
           limits:
             memory: "128Mi"

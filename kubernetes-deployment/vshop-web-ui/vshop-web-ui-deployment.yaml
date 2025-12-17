@@ -22,7 +22,7 @@ spec:
         - name: ServiceUri__ProductApi
           valueFrom:
             configMapKeyRef:
-              name: vshop-web-ui-config   # <<--- aqui
+              name: vshop-web-ui-config 
               key: VShopProductApi
         resources:
           limits:

@@ -1,15 +1,14 @@
--- 1. Cria o banco de dados
+-- 1. Create db
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'VShopDB')
 BEGIN
     CREATE DATABASE VShopDB;
 END
 GO
 
--- Usa o banco recém-criado
 USE VShopDB;
 GO
 
--- 2. Cria a tabela Categories
+-- 2. Create table
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Categories')
 BEGIN
     CREATE TABLE Categories
@@ -20,7 +19,7 @@ BEGIN
 END
 GO
 
--- 3. Cria a tabela Products
+-- 3. Create table
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Products')
 BEGIN
     CREATE TABLE Products
@@ -38,7 +37,7 @@ BEGIN
 END
 GO
 
--- 4. Insere os dados iniciais (seed)
+-- 4. Seed data
 IF NOT EXISTS (SELECT * FROM Categories)
 BEGIN
     INSERT INTO Categories (Name) VALUES ('Scholar objects'), ('Accessories');

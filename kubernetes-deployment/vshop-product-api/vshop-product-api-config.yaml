@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vshop-product-api-config
+  namespace: vshop
+data:
+  VShopProductWeb: "http://192.168.49.2:32001"
