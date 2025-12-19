@@ -1,5 +1,6 @@
 using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
+using Prometheus;
 using Scalar.AspNetCore;
 using VShop.ProductApi.Context;
 using VShop.ProductApi.Repositories;
@@ -51,8 +52,12 @@ app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 
+app.UseHttpMetrics();
+
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapMetrics();
 
 app.Run();
