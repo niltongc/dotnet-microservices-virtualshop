@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: vshop-web-ui
-        image: vshopweb:latest
-        imagePullPolicy: Never
+        image: niltongc/vshopweb:latest
+        imagePullPolicy: IfNotPresent
         env:
         - name: ServiceUri__ProductApi
           valueFrom:

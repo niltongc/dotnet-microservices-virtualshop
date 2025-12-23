@@ -17,8 +17,8 @@ spec:
     spec:
       containers:
       - name: vshop-product-api
-        image: vshopproduct:latest
-        imagePullPolicy: Never
+        image: niltongc/vshopproduct:latest
+        imagePullPolicy: IfNotPresent
         env:
         - name: ConnectionStrings__DefaultConnection
           valueFrom:
