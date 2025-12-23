@@ -72,7 +72,7 @@ jobs:
           username: ubuntu
           key: ${{ env.EC2_SSH_KEY }}
           script: |
-            kubectl get namespace vshop || kubectl create namespace vshop
-            kubectl apply -f /home/ubuntu/deploy/ -n vshop
-            kubectl rollout restart deployment vshop-product-api -n vshop
-            kubectl rollout restart deployment vshop-web-ui -n vshop
+            sudo -E kubectl get namespace vshop || sudo -E kubectl create namespace vshop
+            sudo -E kubectl apply -f /home/ubuntu/deploy/ -n vshop
+            sudo -E kubectl rollout restart deployment vshop-product-api -n vshop
+            sudo -E kubectl rollout restart deployment vshop-web-ui -n vshop
