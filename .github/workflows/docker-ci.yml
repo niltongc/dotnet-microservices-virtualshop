@@ -59,8 +59,10 @@ jobs:
           host: ${{ env.EC2_HOST }}
           username: ubuntu
           key: ${{ env.EC2_SSH_KEY }}
+          port: 22
           source: "kubernetes-deployment/*"
           target: "/home/ubuntu/deploy/"
+
       
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1.0.3
