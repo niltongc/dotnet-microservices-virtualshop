@@ -12,6 +12,7 @@ jobs:
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      DOKCERHUB: ${{ vars.DOCKERHUB}}
 
     steps:
       - name: Checkout code
@@ -24,7 +25,7 @@ jobs:
           context: ./VShop.ProductApi
           file: ./VShop.ProductApi/Dockerfile
           push: true
-          tags: ${{ variables.DOCKERHUB }}/vshopproduct
+          tags: ${{ env.DOCKERHUB }}/vshopproduct:latest
 
       # UI
       - name: Build and push UI image
@@ -33,4 +34,4 @@ jobs:
           context: ./VShop.Web
           file: /VShop.Web/Dockerfile
           push: true
-          tags: ${{ variables.DOCKERHUB }}/vshopweb
+          tags: ${{ env.DOCKERHUB }}/vshopweb:latest
