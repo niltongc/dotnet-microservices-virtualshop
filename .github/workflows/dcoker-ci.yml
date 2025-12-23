@@ -40,6 +40,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: ./VShop.Web
-          file: /VShop.Web/Dockerfile
+          file: ./VShop.Web/Dockerfile
           push: true
           tags: ${{ env.DOCKERHUB }}/vshopweb:latest
