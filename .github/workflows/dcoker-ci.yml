@@ -1,0 +1,36 @@
+name: Docker CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Product API
+      - name: Build and push API image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./VShop.ProductApi
+          file: ./VShop.ProductApi/Dockerfile
+          push: true
+          tags: ${{ variables.DOCKERHUB }}/vshopproduct
+
+      # UI
+      - name: Build and push UI image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./VShop.Web
+          file: /VShop.Web/Dockerfile
+          push: true
+          tags: ${{ variables.DOCKERHUB }}/vshopweb
