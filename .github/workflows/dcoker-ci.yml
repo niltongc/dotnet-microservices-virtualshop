@@ -12,7 +12,7 @@ jobs:
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      DOKCERHUB: ${{ vars.DOCKERHUB}}
+      DOCkERHUB: ${{ vars.DOCKERHUB}}
 
     steps:
       - name: Checkout code
